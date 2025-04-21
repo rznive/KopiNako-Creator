@@ -2,13 +2,18 @@ const axios = require("axios");
 const chalk = require("chalk");
 
 async function editProfile(name, email, sessionId) {
-  const birthday = new Date().toISOString().split("T")[0]; // Mengambil tanggal hari ini dalam format YYYY-MM-DD
+  const today = new Date();
+  const randomYear = Math.floor(Math.random() * (2002 - 1998 + 1)) + 1998;
+  const birthday = `${randomYear}-${String(today.getMonth() + 1).padStart(
+    2,
+    "0"
+  )}-${String(today.getDate()).padStart(2, "0")}`;
 
   const data = JSON.stringify({
     name: name,
     email: email,
     gender: 1,
-    birthday: birthday, // Format tanggal yang diinginkan: YYYY-MM-DD
+    birthday: birthday,
     instagram: "",
   });
 
