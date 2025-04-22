@@ -15,7 +15,6 @@ const searchStores = async (keyword) => {
       console.log(chalk.red(`❌ Tidak ada toko yang ditemukan di ${keyword}`));
       return;
     }
-    console.log(stores);
     stores.forEach((store) => {
       console.log(
         chalk.blue.bold(`\nNama Toko: ${store.name}`) +
