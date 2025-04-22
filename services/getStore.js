@@ -15,14 +15,16 @@ const searchStores = async (keyword) => {
       console.log(chalk.red(`❌ Tidak ada toko yang ditemukan di ${keyword}`));
       return;
     }
+    console.log(stores);
     stores.forEach((store) => {
       console.log(
         chalk.blue.bold(`\nNama Toko: ${store.name}`) +
           chalk.green(`\nAlamat: ${store.address}`) +
           chalk.yellow(`\nNomor Telepon: ${store.phone}`) +
           chalk.green(`\nOrder: ${store.can_accept_order}`) +
-          chalk.bold(`\nDelivery: ${store.available_for_delivery}`)
-
+          chalk.bold(`\nDelivery: ${store.available_for_delivery}`) +
+          chalk.cyan(`\nLatitude: ${store.latitude}`) +
+          chalk.red(`\nLongitude: ${store.longitude}`)
       );
     });
   } catch (err) {
